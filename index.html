@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<heaad>
+    <title>ステータスジェネレーター</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <link href="main.css" rel="stylesheet">
+</heaad>
+
+<body>
+    <!-- id="app"はvueに制御される -->
+    <div id="app">
+        <h1>{{name}}</h1>
+        <template>
+            hp
+            <vue-simple-progress :val="hp" :max="max" :size="20"></vue-simple-progress>
+            mp
+            <vue-simple-progress :val="mp" :max="max" :size="20"></vue-simple-progress>
+        </template>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-simple-progress@1.1.0/dist/vue-simple-progress.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
