@@ -15,21 +15,26 @@ class CharaStatus {
         this.speed = 1;
     }
 
+    // progress の val値は 百分率のため
+    calcRatio(status_point) {
+        return parseInt(100 * status_point / this.MAX_STATUS);
+    }
+
     isAbleIncrease(status_point) {
         return this.growth_point > 0 && this.MAX_STATUS > status_point;
     }
     isAbleDecrease(status_point) {
-        return this.growth_point > 0 && this.MIN_STATUS > status_point;
+        return this.MIN_STATUS < status_point;
     }
 
     setName(name) { this.name = name; }
     getName() { return this.name; }
 
-    increaseHp() { if (this.isAbleIncrease(this.hp)) { this.hp++; } }
-    decreaseHp() { if (this.isAbleDecrease(this.hp)) { this.hp--; } }
+    increaseHp() { if (this.isAbleIncrease(this.hp)) { this.hp++; this.growth_point--; } }
+    decreaseHp() { if (this.isAbleDecrease(this.hp)) { this.hp--; this.growth_point++; } }
 
-    increaseMp() { if (this.isAbleIncrease(this.mp)) { this.mp++; } }
-    decreaseMp() { if (this.isAbleDecrease(this.mp)) { this.mp--; } }
+    increaseMp() { if (this.isAbleIncrease(this.mp)) { this.mp++; this.growth_point--; } }
+    decreaseMp() { if (this.isAbleDecrease(this.mp)) { this.mp--; this.growth_point++; } }
 }
 
 
@@ -39,10 +44,6 @@ var app = new Vue({
 
     data: {
         chara: chara,
-        name: chara.name,
-        hp: chara.hp,
-        mp: chara.mp,
-        max: chara.MAX_STATUS,
         amount: 40
     },
 

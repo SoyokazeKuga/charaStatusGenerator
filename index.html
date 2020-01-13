@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="ja">
-<heaad>
+
+<head>
     <title>ステータスジェネレーター</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
     <link href="main.css" rel="stylesheet">
-</heaad>
+</head>
 
 <body>
-    <!-- id="app"はvueに制御される -->
     <div id="app">
-        <h1>{{name}}</h1>
-        <template>
-            hp
-            <vue-simple-progress :val="hp" :max="max" :size="20"></vue-simple-progress>
-            mp
-            <vue-simple-progress :val="mp" :max="max" :size="20"></vue-simple-progress>
-        </template>
+        <h1>{{chara.name}}</h1>
+        <table width="100%">
+            <tr>
+                <td width="10%">hp</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseHp">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.hp)" :size="20" :text="String(chara.hp)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseHp">+</button>
+                </td>
+            </tr>
+        </table>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue-simple-progress@1.1.0/dist/vue-simple-progress.min.js"></script>
