@@ -13,16 +13,95 @@
         <h1>{{chara.name}}</h1>
         <table width="100%">
             <tr>
-                <td width="10%">hp</td>
+                <td width="10%">HP</td>
                 <td width="10%">
                     <button v-btn v-on:click="decreaseHp">-</button>
                 </td>
                 <td width="70%">
+                    <!-- @idea: プログレスバーをやめてプニキの蜂蜜みたいにする -->
                     <vue-simple-progress :val="chara.calcRatio(chara.hp)" :size="20" :text="String(chara.hp)"
                         text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
                 </td width="10%">
                 <td>
                     <button v-on:click="increaseHp">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">MP</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseMp">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.mp)" :size="20" :text="String(chara.mp)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseMp">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">攻撃</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseAttack">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.attack_point)" :size="20" :text="String(chara.attack_point)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseAttack">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">防御</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseDefense">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.defense_point)" :size="20" :text="String(chara.defense_point)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseDefense">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">魔攻</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseMagicAttack">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.magic_attack_point)" :size="20" :text="String(chara.magic_attack_point)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseMagicAttack">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">魔防</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseMagicDefense">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.magic_defense_point)" :size="20" :text="String(chara.magic_defense_point)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseMagicDefense">+</button>
+                </td>
+            </tr>
+            <tr>
+                <td width="10%">素早さ</td>
+                <td width="10%">
+                    <button v-btn v-on:click="decreaseSpeed">-</button>
+                </td>
+                <td width="70%">
+                    <vue-simple-progress :val="chara.calcRatio(chara.speed)" :size="20" :text="String(chara.speed)"
+                        text-align="left" text-position="middle" style="width:100%;"></vue-simple-progress>
+                </td width="10%">
+                <td>
+                    <button v-on:click="increaseSpeed">+</button>
                 </td>
             </tr>
         </table>

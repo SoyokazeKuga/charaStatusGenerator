@@ -3,7 +3,7 @@ class CharaStatus {
         this.MAX_STATUS = 20;
         this.MIN_STATUS = 0;
 
-        this.name = "ななし";
+        this.name = "No Name";
         this.growth_point = 50;
         this.level = 1;
         this.hp = 1;
@@ -30,11 +30,27 @@ class CharaStatus {
     setName(name) { this.name = name; }
     getName() { return this.name; }
 
+    // TODO メソッドの統一
     increaseHp() { if (this.isAbleIncrease(this.hp)) { this.hp++; this.growth_point--; } }
     decreaseHp() { if (this.isAbleDecrease(this.hp)) { this.hp--; this.growth_point++; } }
 
     increaseMp() { if (this.isAbleIncrease(this.mp)) { this.mp++; this.growth_point--; } }
     decreaseMp() { if (this.isAbleDecrease(this.mp)) { this.mp--; this.growth_point++; } }
+
+    increaseAttack() { if (this.isAbleIncrease(this.attack_point)) { this.attack_point++; this.growth_point--; } }
+    decreaseAttack() { if (this.isAbleDecrease(this.attack_point)) { this.attack_point--; this.growth_point++; } }
+
+    increaseDefense() { if (this.isAbleIncrease(this.defense_point)) { this.defense_point++; this.growth_point--; } }
+    decreaseDefense() { if (this.isAbleDecrease(this.defense_point)) { this.defense_point--; this.growth_point++; } }
+
+    increaseMagicAttack() { if (this.isAbleIncrease(this.magic_attack_point)) { this.magic_attack_point++; this.growth_point--; } }
+    decreaseMagicAttack() { if (this.isAbleDecrease(this.magic_attack_point)) { this.magic_attack_point--; this.growth_point++; } }
+
+    increaseMagicDefense() { if (this.isAbleIncrease(this.magic_defense_point)) { this.magic_defense_point++; this.growth_point--; } }
+    decreaseMagicDefense() { if (this.isAbleDecrease(this.magic_defense_point)) { this.magic_defense_point--; this.growth_point++; } }
+
+    increaseSpeed() { if (this.isAbleIncrease(this.speed)) { this.speed++; this.growth_point--; } }
+    decreaseSpeed() { if (this.isAbleDecrease(this.speed)) { this.speed--; this.growth_point++; } }
 }
 
 
@@ -53,5 +69,20 @@ var app = new Vue({
 
         increaseMp: function (event) { this.chara.increaseMp() },
         decreaseMp: function (event) { this.chara.decreaseMp() },
+
+        increaseAttack: function (event) { this.chara.increaseAttack() },
+        decreaseAttack: function (event) { this.chara.decreaseAttack() },
+
+        increaseDefense: function (event) { this.chara.increaseDefense() },
+        decreaseDefense: function (event) { this.chara.decreaseDefense() },
+
+        increaseMagicAttack: function (event) { this.chara.increaseMagicAttack() },
+        decreaseMagicAttack: function (event) { this.chara.decreaseMagicAttack() },
+
+        increaseMagicDefense: function (event) { this.chara.increaseMagicDefense() },
+        decreaseMagicDefense: function (event) { this.chara.decreaseMagicDefense() },
+
+        increaseSpeed: function (event) { this.chara.increaseSpeed() },
+        decreaseSpeed: function (event) { this.chara.decreaseSpeed() },
     }
 })
